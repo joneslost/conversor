@@ -1,4 +1,4 @@
-package br.com.cwi.web.beans;
+package br.com.cwi.web;
 
 import java.io.File;
 import java.io.Serializable;
@@ -9,13 +9,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-
-import br.com.cwi.web.Arquivo;
-import br.com.cwi.web.Converte;
-import br.com.cwi.web.Cotacao;
-import br.com.cwi.web.Moeda;
-import br.com.cwi.web.Moedas;
-import br.com.cwi.web.Validator;
 
 @ManagedBean(name = "conversorBean")
 @SessionScoped
