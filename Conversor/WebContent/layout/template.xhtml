@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<style>
+    .teste .ui-widget-content
+{
+    border: none !important;
+}
+</style>
+</h:head>
+<h:body>
+	<div id="page" style="margin: 0 auto; width: 90%; height: 30%;">
+		<div id="header" style="width: 100%; height: 80px; background-image: url('imagens/cwi.png;'); background-repeat: no-repeat; background-color: #e0e2e4; text-align: center;">
+			<ui:insert name="header">
+				<ui:include src="/layout/header.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="menu"
+			style="float: left; width: 20%; padding-top: 10px;">
+			<ui:insert name="menu">
+				<ui:include src="/layout/menu.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="conteudo"
+			style="float: right; width: 80%; font-size: 12px; padding-top: 10px;">
+			<ui:insert name="conteudo">
+				<ui:include src="/layout/conteudo.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="footer"
+			style="width: 90%; background-color: blue; bottom: 0; position: fixed;">
+			<ui:insert name="footer">
+				<ui:include src="/layout/footer.xhtml" />
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>

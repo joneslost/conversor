@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="/layout/template.xhtml">
+		<ui:define name="conteudo">
+			<h:form id="cotacao">
+				<p:fieldset legend="Cotação de Moeda">
+					<p:messages />					
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<p:outputLabel value="Data Cotação:" />
+							<p:calendar id="dataCotacao" label="Data Cotação:"
+										value="#{conversorBean.cotacao.data}" required="true"
+										requiredMessage="Informar Data Cotação." showOn="button"
+										pattern="dd/MM/yyyy" mask="true" />
+							<p:outputLabel value="Valor a converter" />
+							<p:inputText id="valorEntrada" value="#{conversorBean.cotacao.valorEntrada}" required="true" 
+										requiredMessage="Informar Valor a converter." converterMessage="Valor a converter invalido!">
+								<f:convertNumber pattern="#0.000" for="valorEntrada"/>
+							</p:inputText>
+							<p:outputLabel value="De:" />
+							<p:selectOneMenu id="moedaEntrada" value="#{conversorBean.cotacao.moedaEntrada.codigoMoeda}"
+												items="#{conversorBean.moedasEntrada}">
+								<f:selectItems value="#{conversorBean.moedasEntrada}" var="moedaEntrada"
+									itemLabel="#{moedaEntrada.nome}" itemValue="#{nome}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Para:" />
+							<p:selectOneMenu id="moedasSaida" value="#{conversorBean.cotacao.moedaSaida.codigoMoeda}"
+												items="#{conversorBean.moedasSaida}">
+								<f:selectItems value="#{conversorBean.moedasSaida}" var="moedaSainda"
+									itemLabel="#{moedaSainda.nome}" itemValue="#{nome}" />
+							</p:selectOneMenu>
+							<p:outputLabel value="Valor Convertido:" />
+							<p:inputText id="valorSaida" value="#{conversorBean.cotacao.valorSainda}">
+								<f:convertNumber pattern="#0.00" for="valorSaida"/>
+							</p:inputText>
+							<p:commandButton action="#{conversorBean.cotar()}" value="Cotar" ajax="false"/>
+						</h:panelGrid>	
+					
+				</p:fieldset>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>
