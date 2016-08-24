@@ -16,17 +16,19 @@ public class Arquivo {
 		urlArquivo = urlArquivo.replace("?", data);
 		
 		try {
+			verificarDiretorio();
 			URL url = new URL(urlArquivo);
 			InputStream is = url.openStream();
 			String nomeArquivoLocal = data+".csv";
-			FileOutputStream fos = new FileOutputStream("c://temp//moeda//"+nomeArquivoLocal);
+			FileOutputStream fos = new FileOutputStream("c://temp//moedas//"+nomeArquivoLocal);
 			int umByte = 0;
 			while ((umByte = is.read()) != -1){
 				fos.write(umByte);
 			}
 			is.close();
 			fos.close();
-			return new File("c://temp//moeda//"+nomeArquivoLocal);
+			
+			return new File("c://temp//moedas//"+nomeArquivoLocal);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,10 +40,17 @@ public class Arquivo {
 		
 	}
 	
-	public static boolean removerArquivo(String path) {
+	public static void removerArquivo(String path) {
 		File file = new File(path);
-		boolean b = file.delete();
-		return b;
+		file.delete();		
+	}
+	
+	public static void verificarDiretorio(){
+		
+		File diretorio = new File("c://temp//moedas//");
+		if (!diretorio.exists()) {
+		   diretorio.mkdirs();
+		}
 	}
 	
 }

@@ -94,8 +94,6 @@ public class Conversor implements Serializable{
 					cotacao.setValorSainda((cotacao.getMoedaEntrada().getTaxaCompra() * cotacao.getValorEntrada()) / cotacao.getMoedaSaida().getTaxaCompra());
 				}
 				
-				
-				
 			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
