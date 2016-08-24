@@ -9,7 +9,7 @@
 	<ui:composition template="/layout/template.xhtml">
 		<ui:define name="conteudo">
 			<h:form id="cotacao">
-				<p:fieldset legend="Cotação de Moeda">
+				<p:fieldset legend="Conversor de Moedas">
 					<p:messages />					
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<p:outputLabel value="Data Cotação:" />
@@ -38,7 +38,7 @@
 							<p:inputText id="valorSaida" value="#{conversorBean.cotacao.valorSainda}">
 								<f:convertNumber pattern="#0.00" for="valorSaida"/>
 							</p:inputText>
-							<p:commandButton action="#{conversorBean.cotar()}" value="Cotar" ajax="false"/>
+							<p:commandButton action="#{conversorBean.cotar()}" value="Converter" ajax="false"/>
 						</h:panelGrid>	
 					
 				</p:fieldset>
